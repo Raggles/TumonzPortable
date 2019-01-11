@@ -20,6 +20,7 @@ namespace TumonzPortable
             T6Pro = 0x10,
             VLS =   0x20,
             T7    = 0x40,
+            T8    = 0x80,
         }
 
         /// <summary>
@@ -51,6 +52,9 @@ namespace TumonzPortable
                     case "-t7":
                         mods |= TumonzModules.T7;
                         break;
+                    case "-t8":
+                        mods |= TumonzModules.T8;
+                        break;
                     case "-vls":
                         mods |= TumonzModules.VLS;
                         break;
@@ -69,7 +73,8 @@ namespace TumonzPortable
             Patch(p, "T3Pro", "\\T3Pro.exe", "3.44", new Dictionary<long, long>() { { 4016640, 0x00125bc8 } }, showExceptions);
             Patch(p, "T4", "\\T4.exe", "4.21", new Dictionary<long, long>() { { 3895296, 0x2f02a4 } }, showExceptions);
             Patch(p, "T6Pro", "\\T6Pro.exe", "6.1", new Dictionary<long, long>() { { 5961216, 0x4483d0 } }, showExceptions);
-            Patch(p, "T6Pro", "\\T7.exe", "7.01", new Dictionary<long, long>() { { 6063104, 0x45D118 } }, showExceptions); 
+            Patch(p, "T7", "\\T7.exe", "7.01", new Dictionary<long, long>() { { 6063104, 0x45D118 } }, showExceptions);
+            Patch(p, "T8", "\\T8.exe", "8.42", new Dictionary<long, long>() { { 6356480, 0x333FEC } }, showExceptions);
 
             if ((mods & TumonzModules.VLS) == TumonzModules.VLS)
                 if (Process.GetProcessesByName("VLicenseServer").Length == 0)
@@ -84,6 +89,8 @@ namespace TumonzPortable
                 Process.Start(p + "\\T6Pro.exe");
             if ((mods & TumonzModules.T7) == TumonzModules.T7)
                 Process.Start(p + "\\T7.exe");
+            if ((mods & TumonzModules.T8) == TumonzModules.T8)
+                Process.Start(p + "\\T8.exe");
 
         }
 

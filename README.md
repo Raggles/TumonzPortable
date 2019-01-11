@@ -1,7 +1,7 @@
 Tumonz Portable
 ================
 
-A program that patches the Tumonz 3.41,3.44 Pro, 4.21, 3D 3.2 and 6.1 Pro binaries so that they can be run from any directory without being previously installed, and tells Tumonz to store all user data in the application directory.
+A program that patches the Tumonz 3.41,3.44 Pro, 4.21, 3D 3.2, 6.1 Pro, T7 and T8 binaries so that they can be run from any directory without being previously installed, and tells Tumonz to store all user data in the application directory.
 Other versions can be included by arrangement.
 
 Normally Tumonz looks for its application path in the registry, so it knows where to find its stuff.  Because we haven't installed it, this key isnt there.  We modify the exes (see note below) to look in the application itself for the path, which is written there by this program before Tumonz starts (we can't just set the registry key as it requires elevation, which we might not have). It also sets a registry key that tells Tumonz to store all user data in the application directory.  This makes it portable (ie on external hard drive).
@@ -13,6 +13,8 @@ Options:
 -t3pro  Start Tumonz 3 Pro  
 -t4     Start Tumonz 4  
 -t6pro  Start Tumonz 6 Pro  
+-t7  Start Tumonz 6 Pro  
+-t8  Start Tumonz 6 Pro  
 -vls    Start License Server  
 -v      Don't suppress errors (verbose)  
 -sud    Set user data directory to application directory  
